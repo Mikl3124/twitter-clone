@@ -1,0 +1,15 @@
+<% if(locals.tweets && tweets) { %>
+    <% tweets.forEach((tweet) => { %>
+        <div class="card tweet-element">
+            <div class="card-body">
+                <div class="card-text">
+                    <a href="/tweets/edit/<%= tweet._id %>"</a>
+                        <%= tweet.content %>
+                    </a>
+                    <button class="btn btn-danger mt-2 float-right" tweetid=<%= tweet._id %>>x</button>
+                </div>
+            </div>
+        </div>
+    <% }) %>
+    </ul>
+<% } %>
