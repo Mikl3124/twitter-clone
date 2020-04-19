@@ -1,9 +1,15 @@
 const router = require('express').Router();
-const tweets = require('./tweets');
+const tweets = require('./tweets.routes');
+const users = require('./users.routes');
+const auth = require('./auth.routes');
+const { ensureAuthenticated } = require('../config/guards.config');
 
-router.use('/tweets', tweets);
-router.get('/', (req,res) => {
-    res.redirect('/tweets');
+router.use('/tweets', ensureAuthenticated, tweets);
+router.use('/users', users);
+router.use('/auth', auth);
+
+router.get('/', (req, res) => {
+  res.redirect('/tweets');
 })
 
-module.exports = router; 
+module.exports = router;

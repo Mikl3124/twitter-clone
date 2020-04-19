@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
+const env = require(`../environment/${ process.env.NODE_ENV }`);
 
-mongoose.connect('mongodb+srv://Mikl3124:Mickael31!@cluster0-rnoqc.mongodb.net/twitter?retryWrites=true&w=majority')
-    .then( () => console.log('connexion db ok !'))
-    .catch( err => console.log( err ));
+mongoose.connect(env.dbUrl, { 
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true
+}).then( () => console.log('connexion db ok !')).catch( err => console.log(err));
