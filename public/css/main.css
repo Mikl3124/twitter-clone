@@ -16,6 +16,17 @@ body {
     background-color: #f8f9fa;
 }
 
+a{
+
+    color: #657786;
+    text-decoration: none;
+}
+a:hover{
+
+    color: #657786;
+    text-decoration: none;
+}
+
 .img-fluid{
     max-height: 100px;
 }
@@ -43,6 +54,56 @@ body {
     border: 1px solid green;
 }
 
-#form-container{
+.pointer-cursor{
     cursor: pointer;
+}
+
+#search-menu-container{
+    position: relative;
+}
+
+.search-menu{
+    position: absolute;
+    border-radius: .25rem;
+    background-color: white;
+    z-index: 1;
+    top: 20px;
+    left: 0px;
+    width: 300px;
+    min-height: 200px;
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+}
+
+.search-menu-item{
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee;
+    transition: background 0.2s;
+}
+
+.search-menu-item:hover {
+    background: #eee;
+    transition: background 0.2s;
+}
+
+.btn-follow{
+    color: #007bff;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    border-width: 2px;;
+}
+
+.btn-follow:hover{
+    color: white;
+
+}
+
+.btn-unfollow{
+    border-radius: 30px;
+    font-weight: bold;
+}
+
+.btn-unfollow:hover{
+    color: white;
+
 }

@@ -2,17 +2,27 @@
 <div class="profile-container mr-3 bg-white d-flex flex-column">
     <form class="d-flex flex-row justify-content-center align-items-center mt-3" action="/users/update/image" method="post" enctype="multipart/form-data" id="form-container">
         <input type="file" name="avatar" class="d-none" id="input-avatar">
-        <img src="<%= currentUser.avatar %>" class="img-fluid" id="image-profile">
+        <img src="<%= user.avatar %>" class="img-fluid" id="image-profile">
     </form>
-    <div class="d-flex flex-row justify-content-center align-items-center my-3">
-        <p><%= `${ currentUser.username } (${ currentUser.local.email })` %></p>
+    <div class="d-flex flex-row justify-content-center align-items-center mt-3">
+        <p><%= `${ user.username } (${ user.local.email })` %></p>
     </div>
+    <% if (currentUser._id.toString() !== user._id.toString()) {%>
+        <div class="d-flex flex-row justify-content-center align-items-center">
+            <% if (currentUser.following.map( objId => objId.toString()).includes(user._id.toString())) {%>
+                <a href="/users/unfollow/<%= user._id %>" class="btn btn-primary btn-unfollow">unfollow</a>
+            <% } else {%>
+                <a href="/users/follow/<%= user._id %>" class="btn btn-outline-primary btn-follow">follow</a>
+            <% } %>
+        </div>
+    <% } %>
+    
     <div class=" text-center d-flex flex-row justify-content-center align-items-center my-3">
         <div class="flex-fill">
             <p><strong>Tweet</strong> <br> <span class="text-primary"><%= tweets.length %></span></p>
         </div>
         <div class="flex-fill">
-            <p><strong>Following</strong> <br> <span class="text-primary"> - </p>
+            <p><strong>Following</strong> <br> <span class="text-primary"> <%= user.following.length %> </p>
         </div>
     </div>
 </div>

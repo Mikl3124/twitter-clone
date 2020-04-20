@@ -1,0 +1,13 @@
+<div class="search-menu d-flex flex-column">
+    <% if (users && users.length) {%>
+        <% users.forEach((user) => { %>
+            <a href="/users/<%= user.username %>" class="d-flex flex-row align-items-center search-menu-item pointer-cursor">
+                <img width="40" heigh="40" class="img-fluid p-1" src="<%= user.avatar %>">
+                <span class="pl-3"><%= user.username %></span>
+            </a>
+        <% }) %>
+    <% } else { %>
+        <span class="pt-3 text-center">Aucun utilisateur</span>
+    <% } %>
+    
+</div>
