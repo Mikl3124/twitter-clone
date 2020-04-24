@@ -1,6 +1,6 @@
 module.exports = {
   apps : [{
-    name: 'kazatravo',
+    name: 'crm',
     script: './bin/www',
     instances: 'max',
     autorestart: true,
